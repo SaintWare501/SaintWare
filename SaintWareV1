@@ -1,5 +1,5 @@
 if not LPH_OBFUSCATED then
-    getfenv().LPH_NO_VIRTUALIZE = function(...) return (...) end;
+	getfenv().LPH_NO_VIRTUALIZE = function(...) return (...) end;
 end
 
 local font = Enum.Font.Ubuntu;
@@ -196,7 +196,7 @@ local Library = {
 	FontSize = 9;
 	Notifs = {};
 	KeyList = nil;
-	UIKey = Enum.KeyCode.End;
+	UIKey = Enum.KeyCode.RightShift;
 	ScreenGUI = nil;
 }
 
@@ -229,14 +229,14 @@ local IgnoreList = {};
 local HitReg = {};
 local loadingTime = tick() 
 local Visuals = {   
-    ["Drawings"] = {},
+	["Drawings"] = {},
 	["Bases"] = {},
 	["Base"] = {},
 	["Settings"] = { 
 		["Line"] = {
-		    Thickness = 1,
-		    Color = Color3.fromRGB(0, 255, 0)
-	    },
+			Thickness = 1,
+			Color = Color3.fromRGB(0, 255, 0)
+		},
 		["Text"] = {
 			Size = 13,
 			Center = true,
@@ -341,32 +341,32 @@ local images = {
 	["[Rifle]"] = game:HttpGet(Path.. "rifle.png")
 } 
 local Languages = {
-    A = {English = "A", Arabic = "أ", Albanian = "A", Japanese = "あ", Spanish = "A", Russian = "А", Chinese = "阿", Urdu = "ا", French = "A", Portuguese = "A", Hindi = "अ"},
-    B = {English = "B", Arabic = "ب", Albanian = "B", Japanese = "い", Spanish = "B", Russian = "Б", Chinese = "波", Urdu = "ب", French = "B", Portuguese = "B", Hindi = "ब"},
-    C = {English = "C", Arabic = "ت", Albanian = "C", Japanese = "う", Spanish = "C", Russian = "Ц", Chinese = "西", Urdu = "س", French = "C", Portuguese = "C", Hindi = "स"},
-    D = {English = "D", Arabic = "د", Albanian = "D", Japanese = "え", Spanish = "D", Russian = "Д", Chinese = "德", Urdu = "ڈ", French = "D", Portuguese = "D", Hindi = "ड"},
-    E = {English = "E", Arabic = "إ", Albanian = "E", Japanese = "お", Spanish = "E", Russian = "Е", Chinese = "俄", Urdu = "اے", French = "E", Portuguese = "E", Hindi = "ए"},
-    F = {English = "F", Arabic = "ف", Albanian = "F", Japanese = "か", Spanish = "F", Russian = "Ф", Chinese = "夫", Urdu = "ف", French = "F", Portuguese = "F", Hindi = "फ"},
-    G = {English = "G", Arabic = "ج", Albanian = "G", Japanese = "き", Spanish = "G", Russian = "Г", Chinese = "吉", Urdu = "ج", French = "G", Portuguese = "G", Hindi = "ग"},
-    H = {English = "H", Arabic = "ح", Albanian = "H", Japanese = "く", Spanish = "H", Russian = "Х", Chinese = "艾尺", Urdu = "ح", French = "H", Portuguese = "H", Hindi = "ह"},
-    I = {English = "I", Arabic = "ي", Albanian = "I", Japanese = "け", Spanish = "I", Russian = "И", Chinese = "伊", Urdu = "آئی", French = "I", Portuguese = "I", Hindi = "इ"},
-    J = {English = "J", Arabic = "ج", Albanian = "J", Japanese = "こ", Spanish = "J", Russian = "Й", Chinese = "杰", Urdu = "جے", French = "J", Portuguese = "J", Hindi = "ज"},
-    K = {English = "K", Arabic = "ك", Albanian = "K", Japanese = "さ", Spanish = "K", Russian = "К", Chinese = "开", Urdu = "کے", French = "K", Portuguese = "K", Hindi = "क"},
-    L = {English = "L", Arabic = "ل", Albanian = "L", Japanese = "し", Spanish = "L", Russian = "Л", Chinese = "艾勒", Urdu = "ل", French = "L", Portuguese = "L", Hindi = "ल"},
-    M = {English = "M", Arabic = "م", Albanian = "M", Japanese = "す", Spanish = "M", Russian = "М", Chinese = "艾马", Urdu = "م", French = "M", Portuguese = "M", Hindi = "म"},
-    N = {English = "N", Arabic = "ن", Albanian = "N", Japanese = "せ", Spanish = "N", Russian = "Н", Chinese = "艾娜", Urdu = "ن", French = "N", Portuguese = "N", Hindi = "न"},
-    O = {English = "O", Arabic = "أو", Albanian = "O", Japanese = "そ", Spanish = "O", Russian = "О", Chinese = "哦", Urdu = "او", French = "O", Portuguese = "O", Hindi = "ओ"},
-    P = {English = "P", Arabic = "ب", Albanian = "P", Japanese = "た", Spanish = "P", Russian = "П", Chinese = "屁", Urdu = "پ", French = "P", Portuguese = "P", Hindi = "प"},
-    Q = {English = "Q", Arabic = "ق", Albanian = "Q", Japanese = "ち", Spanish = "Q", Russian = "К", Chinese = "丘", Urdu = "ق", French = "Q", Portuguese = "Q", Hindi = "क्यू"},
-    R = {English = "R", Arabic = "ر", Albanian = "R", Japanese = "つ", Spanish = "R", Russian = "Р", Chinese = "艾儿", Urdu = "ر", French = "R", Portuguese = "R", Hindi = "र"},
-    S = {English = "S", Arabic = "س", Albanian = "S", Japanese = "て", Spanish = "S", Russian = "С", Chinese = "艾丝", Urdu = "س", French = "S", Portuguese = "S", Hindi = "एस"},
-    T = {English = "T", Arabic = "ت", Albanian = "T", Japanese = "と", Spanish = "T", Russian = "Т", Chinese = "提", Urdu = "ٹ", French = "T", Portuguese = "T", Hindi = "ट"},
-    U = {English = "U", Arabic = "أو", Albanian = "U", Japanese = "な", Spanish = "U", Russian = "У", Chinese = "优", Urdu = "یو", French = "U", Portuguese = "U", Hindi = "यू"},
-    V = {English = "V", Arabic = "ف", Albanian = "V", Japanese = "に", Spanish = "V", Russian = "В", Chinese = "维", Urdu = "وی", French = "V", Portuguese = "V", Hindi = "व"},
-    W = {English = "W", Arabic = "و", Albanian = "W", Japanese = "ぬ", Spanish = "W", Russian = "В", Chinese = "豆贝尔维", Urdu = "ڈبلیو", French = "W", Portuguese = "W", Hindi = "डब्ल्यू"},
-    X = {English = "X", Arabic = "إكس", Albanian = "X", Japanese = "ね", Spanish = "X", Russian = "Х", Chinese = "艾克斯", Urdu = "اکس", French = "X", Portuguese = "X", Hindi = "एक्स"},
-    Y = {English = "Y", Arabic = "ي", Albanian = "Y", Japanese = "の", Spanish = "Y", Russian = "У", Chinese = "伊儿", Urdu = "وائی", French = "Y", Portuguese = "Y", Hindi = "वाई"},
-    Z = {English = "Z", Arabic = "ز", Albanian = "Z", Japanese = "は", Spanish = "Z", Russian = "З", Chinese = "贼德", Urdu = "زیڈ", French = "Z", Portuguese = "Z", Hindi = "जेड"}
+	A = {English = "A", Arabic = "أ", Albanian = "A", Japanese = "あ", Spanish = "A", Russian = "А", Chinese = "阿", Urdu = "ا", French = "A", Portuguese = "A", Hindi = "अ"},
+	B = {English = "B", Arabic = "ب", Albanian = "B", Japanese = "い", Spanish = "B", Russian = "Б", Chinese = "波", Urdu = "ب", French = "B", Portuguese = "B", Hindi = "ब"},
+	C = {English = "C", Arabic = "ت", Albanian = "C", Japanese = "う", Spanish = "C", Russian = "Ц", Chinese = "西", Urdu = "س", French = "C", Portuguese = "C", Hindi = "स"},
+	D = {English = "D", Arabic = "د", Albanian = "D", Japanese = "え", Spanish = "D", Russian = "Д", Chinese = "德", Urdu = "ڈ", French = "D", Portuguese = "D", Hindi = "ड"},
+	E = {English = "E", Arabic = "إ", Albanian = "E", Japanese = "お", Spanish = "E", Russian = "Е", Chinese = "俄", Urdu = "اے", French = "E", Portuguese = "E", Hindi = "ए"},
+	F = {English = "F", Arabic = "ف", Albanian = "F", Japanese = "か", Spanish = "F", Russian = "Ф", Chinese = "夫", Urdu = "ف", French = "F", Portuguese = "F", Hindi = "फ"},
+	G = {English = "G", Arabic = "ج", Albanian = "G", Japanese = "き", Spanish = "G", Russian = "Г", Chinese = "吉", Urdu = "ج", French = "G", Portuguese = "G", Hindi = "ग"},
+	H = {English = "H", Arabic = "ح", Albanian = "H", Japanese = "く", Spanish = "H", Russian = "Х", Chinese = "艾尺", Urdu = "ح", French = "H", Portuguese = "H", Hindi = "ह"},
+	I = {English = "I", Arabic = "ي", Albanian = "I", Japanese = "け", Spanish = "I", Russian = "И", Chinese = "伊", Urdu = "آئی", French = "I", Portuguese = "I", Hindi = "इ"},
+	J = {English = "J", Arabic = "ج", Albanian = "J", Japanese = "こ", Spanish = "J", Russian = "Й", Chinese = "杰", Urdu = "جے", French = "J", Portuguese = "J", Hindi = "ज"},
+	K = {English = "K", Arabic = "ك", Albanian = "K", Japanese = "さ", Spanish = "K", Russian = "К", Chinese = "开", Urdu = "کے", French = "K", Portuguese = "K", Hindi = "क"},
+	L = {English = "L", Arabic = "ل", Albanian = "L", Japanese = "し", Spanish = "L", Russian = "Л", Chinese = "艾勒", Urdu = "ل", French = "L", Portuguese = "L", Hindi = "ल"},
+	M = {English = "M", Arabic = "م", Albanian = "M", Japanese = "す", Spanish = "M", Russian = "М", Chinese = "艾马", Urdu = "م", French = "M", Portuguese = "M", Hindi = "म"},
+	N = {English = "N", Arabic = "ن", Albanian = "N", Japanese = "せ", Spanish = "N", Russian = "Н", Chinese = "艾娜", Urdu = "ن", French = "N", Portuguese = "N", Hindi = "न"},
+	O = {English = "O", Arabic = "أو", Albanian = "O", Japanese = "そ", Spanish = "O", Russian = "О", Chinese = "哦", Urdu = "او", French = "O", Portuguese = "O", Hindi = "ओ"},
+	P = {English = "P", Arabic = "ب", Albanian = "P", Japanese = "た", Spanish = "P", Russian = "П", Chinese = "屁", Urdu = "پ", French = "P", Portuguese = "P", Hindi = "प"},
+	Q = {English = "Q", Arabic = "ق", Albanian = "Q", Japanese = "ち", Spanish = "Q", Russian = "К", Chinese = "丘", Urdu = "ق", French = "Q", Portuguese = "Q", Hindi = "क्यू"},
+	R = {English = "R", Arabic = "ر", Albanian = "R", Japanese = "つ", Spanish = "R", Russian = "Р", Chinese = "艾儿", Urdu = "ر", French = "R", Portuguese = "R", Hindi = "र"},
+	S = {English = "S", Arabic = "س", Albanian = "S", Japanese = "て", Spanish = "S", Russian = "С", Chinese = "艾丝", Urdu = "س", French = "S", Portuguese = "S", Hindi = "एस"},
+	T = {English = "T", Arabic = "ت", Albanian = "T", Japanese = "と", Spanish = "T", Russian = "Т", Chinese = "提", Urdu = "ٹ", French = "T", Portuguese = "T", Hindi = "ट"},
+	U = {English = "U", Arabic = "أو", Albanian = "U", Japanese = "な", Spanish = "U", Russian = "У", Chinese = "优", Urdu = "یو", French = "U", Portuguese = "U", Hindi = "यू"},
+	V = {English = "V", Arabic = "ف", Albanian = "V", Japanese = "に", Spanish = "V", Russian = "В", Chinese = "维", Urdu = "وی", French = "V", Portuguese = "V", Hindi = "व"},
+	W = {English = "W", Arabic = "و", Albanian = "W", Japanese = "ぬ", Spanish = "W", Russian = "В", Chinese = "豆贝尔维", Urdu = "ڈبلیو", French = "W", Portuguese = "W", Hindi = "डब्ल्यू"},
+	X = {English = "X", Arabic = "إكس", Albanian = "X", Japanese = "ね", Spanish = "X", Russian = "Х", Chinese = "艾克斯", Urdu = "اکس", French = "X", Portuguese = "X", Hindi = "एक्स"},
+	Y = {English = "Y", Arabic = "ي", Albanian = "Y", Japanese = "の", Spanish = "Y", Russian = "У", Chinese = "伊儿", Urdu = "وائی", French = "Y", Portuguese = "Y", Hindi = "वाई"},
+	Z = {English = "Z", Arabic = "ز", Albanian = "Z", Japanese = "は", Spanish = "Z", Russian = "З", Chinese = "贼德", Urdu = "زیڈ", French = "Z", Portuguese = "Z", Hindi = "जेड"}
 }
 local utx = {} 
 local Messages = {}
@@ -469,18 +469,18 @@ do
 			Progress.BorderSizePixel = 0
 			Progress.BorderColor3 = Color3.new(0,0,0)
 			table.insert(notification.Objects, Progress)
-		
+
 			if color ~= nil then
 				Progress.BackgroundColor3 = color
 				Accemt.BackgroundColor3 = color
 			end
-		
+
 			function notification:remove()
 				table.remove(Library.Notifs, table.find(Library.Notifs, notification))
 				Library:updateNotifsPositions(position)
 				notification.Container:Destroy()
 			end
-		
+
 			task.spawn(function()
 				Background.AnchorPoint = NewVector2(1,0)
 				local Tween1 = game:GetService("TweenService"):Create(Background, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {AnchorPoint = NewVector2(0,0)}):Play()
@@ -494,11 +494,11 @@ do
 				game:GetService("TweenService"):Create(TextLabel, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1}):Play()
 				game:GetService("TweenService"):Create(UIStroke, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 1}):Play()
 			end)
-		
+
 			task.delay(0.25 + duration + 0.25, function()
 				notification:remove()
 			end)
-		
+
 			table.insert(Library.Notifs, notification)
 			NotifContainer.Position = UDim2.new(0,Position.X,0,Position.Y + (table.find(Library.Notifs, notification) * 25))
 			NotifContainer.Size = UDim2.new(0,TextLabel.TextBounds.X + 4,0,18)
@@ -1142,7 +1142,7 @@ do
 					slidingalpha = false
 				end
 			end)
-			
+
 			Library:Connection(Icon.MouseButton2Down, function()
 				ModeOutline.Visible = not ModeOutline.Visible
 			end)
@@ -1264,9 +1264,9 @@ do
 			DragButton.AutoButtonColor = false
 			DragButton.FontFace = Font.new("rbxassetid://12187371840")
 			DragButton.TextSize = Library.FontSize
-			
-            
-			
+
+
+
 			-- // Elements
 			Window.Elements = {
 				TabHolder = Tabs,
@@ -1330,45 +1330,45 @@ do
 				Open = false,
 				Sections = {},
 				Elements = {},
-                Weapons = {},
-                Icons = Properties.Weapons or Properties.weapons or false,
+				Weapons = {},
+				Icons = Properties.Weapons or Properties.weapons or false,
 			}
 			--
 			local TabButton = Instance.new('TextButton', Page.Window.Elements.TabHolder)
 			local TabAccent = Instance.new('Frame', TabButton)
 			local TabLine = Instance.new('Frame', TabButton)
-            local WeaponOutline = Instance.new("Frame", Page.Window.Elements.Holder)
-            local WeaponInline = Instance.new("Frame", WeaponOutline)
-            local UIListLayout3 = Instance.new("UIListLayout", WeaponInline)
-            local Left = Instance.new('Frame', Page.Window.Elements.Holder)
-            local Right = Instance.new('Frame', Page.Window.Elements.Holder)
-            local UIListLayout = Instance.new('UIListLayout', Left)
-            local UIListLayout_2 = Instance.new('UIListLayout', Right)
-            Left.Name = "Left"
-            Left.Position = UDim2.new(0,5,0,35)
-            Left.Size = UDim2.new(0.485,-3,1,-40)
-            Left.BackgroundColor3 = Color3.new(1,1,1)
-            Left.BorderSizePixel = 0
-            Left.BackgroundTransparency = 1
-            Left.BorderColor3 = Color3.new(0,0,0)
-            Left.Visible = false
-            Left.ZIndex = 3
-            --
-            Right.Name = "Right"
-            Right.Position = UDim2.new(1,-5,0,35)
-            Right.Size = UDim2.new(0.485,-3,1,-40)
-            Right.BackgroundColor3 = Color3.new(1,1,1)
-            Right.BorderSizePixel = 0
-            Right.BorderColor3 = Color3.new(0,0,0)
-            Right.AnchorPoint = Vector2.new(1,0)
-            Right.Visible = false
-            Right.BackgroundTransparency = 1
-            --
-            UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-            UIListLayout.Padding = UDim.new(0,12)
-            --
-            UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-            UIListLayout_2.Padding = UDim.new(0,12)
+			local WeaponOutline = Instance.new("Frame", Page.Window.Elements.Holder)
+			local WeaponInline = Instance.new("Frame", WeaponOutline)
+			local UIListLayout3 = Instance.new("UIListLayout", WeaponInline)
+			local Left = Instance.new('Frame', Page.Window.Elements.Holder)
+			local Right = Instance.new('Frame', Page.Window.Elements.Holder)
+			local UIListLayout = Instance.new('UIListLayout', Left)
+			local UIListLayout_2 = Instance.new('UIListLayout', Right)
+			Left.Name = "Left"
+			Left.Position = UDim2.new(0,5,0,35)
+			Left.Size = UDim2.new(0.485,-3,1,-40)
+			Left.BackgroundColor3 = Color3.new(1,1,1)
+			Left.BorderSizePixel = 0
+			Left.BackgroundTransparency = 1
+			Left.BorderColor3 = Color3.new(0,0,0)
+			Left.Visible = false
+			Left.ZIndex = 3
+			--
+			Right.Name = "Right"
+			Right.Position = UDim2.new(1,-5,0,35)
+			Right.Size = UDim2.new(0.485,-3,1,-40)
+			Right.BackgroundColor3 = Color3.new(1,1,1)
+			Right.BorderSizePixel = 0
+			Right.BorderColor3 = Color3.new(0,0,0)
+			Right.AnchorPoint = Vector2.new(1,0)
+			Right.Visible = false
+			Right.BackgroundTransparency = 1
+			--
+			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			UIListLayout.Padding = UDim.new(0,12)
+			--
+			UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+			UIListLayout_2.Padding = UDim.new(0,12)
 			--
 			TabButton.Name = "TabButton"
 			TabButton.Size = UDim2.new(0.25,0,1,0)
@@ -1399,34 +1399,34 @@ do
 			TabLine.BorderSizePixel = 0
 			TabLine.BorderColor3 = Color3.new(0,0,0)
 
-            WeaponOutline.Name = "WeaponOutline"
-            WeaponOutline.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-            WeaponOutline.BorderColor3 = Color3.fromRGB(10, 10, 10)
-            WeaponOutline.Position = UDim2.new(0, 5, 0, 25)
-            WeaponOutline.Size = UDim2.new(1, -10, 0, 40)
-            WeaponOutline.Visible = false
-            
-            WeaponInline.Name = "WeaponInline"
-            WeaponInline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-            WeaponInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            WeaponInline.BorderSizePixel = 0
-            WeaponInline.Position = UDim2.new(0, 1, 0, 1)
-            WeaponInline.Size = UDim2.new(1, -2, 1, -2)
-            
-            UIListLayout3.FillDirection = Enum.FillDirection.Horizontal
-            UIListLayout3.SortOrder = Enum.SortOrder.LayoutOrder
-			
+			WeaponOutline.Name = "WeaponOutline"
+			WeaponOutline.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			WeaponOutline.BorderColor3 = Color3.fromRGB(10, 10, 10)
+			WeaponOutline.Position = UDim2.new(0, 5, 0, 25)
+			WeaponOutline.Size = UDim2.new(1, -10, 0, 40)
+			WeaponOutline.Visible = false
+
+			WeaponInline.Name = "WeaponInline"
+			WeaponInline.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			WeaponInline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			WeaponInline.BorderSizePixel = 0
+			WeaponInline.Position = UDim2.new(0, 1, 0, 1)
+			WeaponInline.Size = UDim2.new(1, -2, 1, -2)
+
+			UIListLayout3.FillDirection = Enum.FillDirection.Horizontal
+			UIListLayout3.SortOrder = Enum.SortOrder.LayoutOrder
+
 			function Page:Turn(bool)
 				Page.Open = bool
 				if not Page.Icons then
-                    Left.Visible = Page.Open
-				    Right.Visible = Page.Open
-                else
-                    WeaponOutline.Visible = Page.Open
-                    for Index, Weapon in pairs(Page.Weapons) do
-                        Weapon:Turn(Weapon.Open)
-                    end
-                end
+					Left.Visible = Page.Open
+					Right.Visible = Page.Open
+				else
+					WeaponOutline.Visible = Page.Open
+					for Index, Weapon in pairs(Page.Weapons) do
+						Weapon:Turn(Weapon.Open)
+					end
+				end
 				TabAccent.Visible = Page.Open
 				TabLine.Visible = not Page.Open
 				TabButton.TextColor3 = Page.Open and Color3.fromRGB(255,255,255) or Color3.fromRGB(145,145,145)
@@ -1455,7 +1455,7 @@ do
 				end
 			end)
 
-            -- // Functions
+			-- // Functions
 			function Page:UpdateWeapons()
 				for Index, Weapon in pairs(Page.Weapons) do
 					Weapon.Elements.Button.Size = UDim2.new(1/#Page.Weapons,0,1,0)
@@ -1465,11 +1465,11 @@ do
 
 			-- // Elements
 			Page.Elements = {
-                Left = Page.Icons and nil or Left,
+				Left = Page.Icons and nil or Left,
 				Right = Page.Icons and nil or Right,
 				Button = TabButton,
-                WeaponOutline = WeaponOutline,
-                WeaponInline = WeaponInline,
+				WeaponOutline = WeaponOutline,
+				WeaponInline = WeaponInline,
 			}
 
 			-- // Drawings
@@ -1480,9 +1480,9 @@ do
 			Page.Window:UpdateTabs()
 			return setmetatable(Page, Library.Pages)
 		end
-        --
-        function Pages:Weapon(Properties)
-            if not Properties then
+		--
+		function Pages:Weapon(Properties)
+			if not Properties then
 				Properties = {}
 			end
 			--
@@ -1494,23 +1494,23 @@ do
 				Elements = {},
 			}
 			--
-            --Weapon.Window.Elements.WeaponOutline.Visible = true
+			--Weapon.Window.Elements.WeaponOutline.Visible = true
 
 			local Left = Instance.new('Frame', Weapon.Window.Window.Elements.Holder)
 			local Right = Instance.new('Frame', Weapon.Window.Window.Elements.Holder)
 			local UIListLayout = Instance.new('UIListLayout', Left)
 			local UIListLayout_2 = Instance.new('UIListLayout', Right)
-            local New = Instance.new("ImageButton")
+			local New = Instance.new("ImageButton")
 			--
 			New.Name = "New"
-            New.Parent = Weapon.Window.Elements.WeaponInline
-            New.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            New.BackgroundTransparency = 1.000
-            New.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            New.BorderSizePixel = 0
-            New.Size = UDim2.new(0.200000003, 0, 1, 0)
-            New.Image = Weapon.Icon
-            New.ScaleType = Enum.ScaleType.Fit
+			New.Parent = Weapon.Window.Elements.WeaponInline
+			New.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			New.BackgroundTransparency = 1.000
+			New.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			New.BorderSizePixel = 0
+			New.Size = UDim2.new(0.200000003, 0, 1, 0)
+			New.Image = Weapon.Icon
+			New.ScaleType = Enum.ScaleType.Fit
 			--
 			Left.Name = "Left"
 			Left.Position = UDim2.new(0,5,0,75)
@@ -1537,7 +1537,7 @@ do
 			--
 			UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout_2.Padding = UDim.new(0,12)
-			
+
 			function Weapon:Turn(bool)
 				Weapon.Open = bool
 				Left.Visible = Weapon.Open and Weapon.Window.Open
@@ -1571,7 +1571,7 @@ do
 			Weapon.Window.Weapons[#Weapon.Window.Weapons + 1] = Weapon
 			Weapon.Window:UpdateWeapons()
 			return setmetatable(Weapon, Library.Pages)
-        end
+		end
 		--
 		function Pages:Section(Properties)
 			if not Properties then
@@ -1603,7 +1603,7 @@ do
 			SectionOutline.AutomaticSize = Enum.AutomaticSize.Y
 			SectionOutline.ZIndex = Section.ZIndex
 			--
-			
+
 			--
 			SectionInline.Name = "SectionInline"
 			SectionInline.Position = UDim2.new(0,1,0,1)
@@ -1662,7 +1662,7 @@ do
 			--
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0,10)
-			
+
 			-- // Elements
 			Section.Elements = {
 				SectionContent = Container;
@@ -1760,7 +1760,7 @@ do
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			Title.Text = Toggle.Name
 			Title.TextStrokeTransparency = 0
-			
+
 			-- // Functions
 			local function SetState()
 				Toggle.Toggled = not Toggle.Toggled
@@ -1805,7 +1805,7 @@ do
 					table.remove(Library.ThemeObjects, table.find(Library.ThemeObjects, Title))
 				end
 			end)
-			
+
 			function Toggle:Keybind(Properties)
 				local Properties = Properties or {}
 				local Keybind = {
@@ -2046,7 +2046,7 @@ do
 					if Keybind.Mode == "Hold" then
 						if Key ~= "" or Key ~= nil then
 							if inp.KeyCode == Key or inp.UserInputType == Key then
-								if c then
+								if  then
 									c:Disconnect()
 									if Keybind.Flag then
 										Library.Flags[Keybind.Flag] = false
@@ -2114,7 +2114,7 @@ do
 				-- // Returning
 				return Keybind
 			end
-			
+
 			function Toggle:Colorpicker(Properties)
 				local Properties = Properties or {}
 				local Colorpicker = {
@@ -2168,7 +2168,7 @@ do
 				-- // Returning
 				return Colorpicker
 			end
-			
+
 			-- // Misc Functions
 			function Toggle.Set(bool)
 				bool = type(bool) == "boolean" and bool or false
@@ -2339,7 +2339,7 @@ do
 			Value.TextSize = Library.FontSize
 			Value.TextXAlignment = Enum.TextXAlignment.Right
 			Value.TextStrokeTransparency = 0
-			
+
 			-- // Functions
 			local Sliding = false
 			local Val = Slider.State
@@ -2562,7 +2562,7 @@ do
 			ContainerInline.ZIndex = 6;
 			--
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-			
+
 			-- // Connections
 			Library:Connection(Outline.MouseButton1Down, function()
 				ContainerOutline.Visible = not ContainerOutline.Visible
@@ -2937,7 +2937,7 @@ do
 			Always.FontFace = Font.new("rbxassetid://12187371840")
 			Always.TextSize = Library.FontSize
 			Always.TextStrokeTransparency = 0
-			
+
 			-- // Functions
 			local function set(newkey)
 				if string.find(tostring(newkey), "Enum") then
@@ -3197,7 +3197,7 @@ do
 			TextLabel.TextSize = Library.FontSize
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.TextStrokeTransparency = 0
-			
+
 			Library:Connection(NewToggle.MouseEnter, function()
 				table.insert(Library.ThemeObjects, TextLabel)
 				TextLabel.TextColor3 = Library.Accent
@@ -3325,7 +3325,7 @@ do
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			Title.TextStrokeTransparency = 0
 			Title.Text = Textbox.Name
-			
+
 			-- // Connections
 			Library:Connection(NewDrop.MouseEnter, function()
 				Outline.BorderColor3 = Library.Accent
@@ -3412,7 +3412,7 @@ do
 			Value.TextSize = Library.FontSize
 			Value.Text = Button.Name
 			Value.TextStrokeTransparency = 0
-			
+
 			Library:Connection(NewButton.MouseEnter, function()
 				Outline.BorderColor3 = Library.Accent
 			end)
@@ -3543,12 +3543,12 @@ do
 			function utility:generateAngles(numLines)
 				local angles = {}
 				local angleIncrement = 2 * math.pi / numLines
-				
+
 				for i = 1, numLines do
 					local angle = (i - 1) * angleIncrement
 					table.insert(angles, angle)
 				end
-				
+
 				return angles
 			end
 			-- 
@@ -3558,7 +3558,7 @@ do
 			-- 
 			function utility:checkMessage(tbl)
 				local msg = tbl[math.random(1, #tbl)]
-				
+
 				if msg == oldMsg then
 					return utility:checkMessage(tbl)
 				else
@@ -3629,14 +3629,14 @@ do
 
 					local currentPosition = RootPart.Position
 					local currentTime = tick() 
-					
+
 					task.wait()
-		
+
 					local newPosition = RootPart.Position
 					local newTime = tick()
-					
+
 					local distanceTraveled = (newPosition - currentPosition) 
-		
+
 					local timeInterval = newTime - currentTime
 					local velocity = distanceTraveled / timeInterval
 					currentPosition = newPosition
@@ -3731,15 +3731,15 @@ do
 				local UpCalculation = NewCFrame(TorsoSize)
 				local VTop = TorsoSize + (UpCalculation.UpVector * 1.8) + Camera.CFrame.UpVector;
 				local VBottom = TorsoSize - (UpCalculation.UpVector * 2.5) - Camera.CFrame.UpVector;
-			
+
 				local Top, TopIsRendered = Camera:WorldToViewportPoint(VTop);
 				local Bottom, BottomIsRendered = Camera:WorldToViewportPoint(VBottom);
-			
+
 				local Width = math.max(math.floor(math.abs(Top.x - Bottom.x)), 3);
 				local Height = math.max(math.floor(math.max(math.abs(Bottom.y - Top.y), Width / 2)), 3);
 				local BoxSize = NewVector2(math.floor(math.max(Height / 1.5, Width)), Height);
 				local BoxPosition = NewVector2(math.floor(Top.x * 0.5 + Bottom.x * 0.5 - BoxSize.x * 0.5), math.floor(math.min(Top.y, Bottom.y)));
-			
+
 				return BoxSize, BoxPosition;
 			end
 			--
@@ -3764,7 +3764,7 @@ do
 						table.insert(RayIgnoreList, utility:getHeld().Handle)
 					end 
 					table.insert(RayIgnoreList, Camera)
-					
+
 					if Mouse.TargetFilter then table.insert(RayIgnoreList, Mouse.TargetFilter) end
 
 					if #IgnoreList > 64 then
@@ -3777,7 +3777,7 @@ do
 				end
 
 				local Hit = workspace:FindPartOnRayWithIgnoreList(_Ray, RayIgnoreList)
-				
+
 				if Hit and not Hit:IsDescendantOf(Model) then
 					Pass = false;
 					if Hit.Transparency >= .3 or not Hit.CanCollide and Hit.ClassName ~= Terrain then
@@ -3805,7 +3805,7 @@ do
 				)
 			end
 		end 
-		
+
 		-- // Framework Functions 
 		do 
 			function framework:selectTarget() 
@@ -3905,15 +3905,15 @@ do
 					local X = Random(-128^2, 128^2);
 					local Y = Random(0, 128^2);
 					local Z = Random(-128^2, 128^2);
-			
+
 					rootOffset = NewVector3(X, -Y, Z);
 				end;
-				
+
 				LocalPlayer.Character.HumanoidRootPart.CFrame *= Angle(0, Rad(rootAng), 0);
 				LocalPlayer.Character.HumanoidRootPart.Velocity = rootOffset; 
-			
+
 				RunService.RenderStepped:Wait();
-				
+
 				LocalPlayer.Character.HumanoidRootPart.CFrame *= Angle(0, Rad(-rootAng), 0);
 				LocalPlayer.Character.HumanoidRootPart.Velocity = rootVel;
 			end
@@ -3974,29 +3974,29 @@ do
 				for i = 1, Repeat and math.random(2, 5) or 1 do
 					for i = 1, math.random(1, 5) do
 						local index = math.random(0, 1) == 0 and "symbols" or "emojis"
-						
+
 						if index == "symbols" and Symbols then
 							message ..= tostring(utx[index][math.random(1, #utx[index])])
 						elseif index == "emojis" and Emojis then
 							message ..= tostring(utx[index][math.random(1, #utx[index])])
 						end
 					end
-					
+
 					message ..= utility:checkMessage(Messages[Type])
-								
+
 					for i = 1, math.random(1, 5) do
 						local index = math.random(0, 1) == 0 and "symbols" or "emojis"
-						
+
 						if index == "symbols" and Symbols then
 							message ..= tostring(utx[index][math.random(1, #utx[index])])
 						elseif index == "emojis" and Emojis then
 							message ..= tostring(utx[index][math.random(1, #utx[index])])
 						end
 					end
-					
+
 					message ..= " "
 				end
-				
+
 				return message
 			end 
 			-- 
@@ -4040,7 +4040,7 @@ do
 			--
 			function framework:selectPrediction()
 				local Prediction; 
-				
+
 				local Predictions = {
 					0.113,
 					0.115,
@@ -4092,12 +4092,12 @@ do
 						if v:IsA("BasePart") then 
 							local pos = Camera:WorldToViewportPoint(v.Position)
 							local magnitude = (NewVector2(pos.X, pos.Y) - NewVector2(Mouse.X, Mouse.Y+36)).magnitude
-								if magnitude < shortestDistance and table.find(List, v.Name) then
-									closestPart = v
-									shortestDistance = magnitude
-								end
+							if magnitude < shortestDistance and table.find(List, v.Name) then
+								closestPart = v
+								shortestDistance = magnitude
 							end
-						end 
+						end
+					end 
 					return closestPart
 				end
 			end 
@@ -4806,7 +4806,7 @@ do
 					v.Transparency = 0
 				end 
 			end 
-			
+
 			-- drawing lines for crosshair
 			do 
 				for Index = 1, 4 do
@@ -4831,7 +4831,7 @@ do
 					crosshair_Outlines[Index] = line_1
 				end
 			end 
-			
+
 			-- // Chat spam framework
 			do 
 				Messages = {
@@ -5001,7 +5001,7 @@ do
 				end)
 			end 
 			--
-            local a=game:GetService('HttpService')local b=request({Url='http://127.0.0.1:6463/rpc?v=1',Method='POST',Headers={['Content-Type']='application/json',Origin='https://discord.com'},Body=a:JSONEncode({cmd='INVITE_BROWSER',nonce=a:GenerateGUID(false),args={code='sxTR9MxYGj'}})})getgenv().Notify=function(c,d,e,f)game:GetService("StarterGui"):SetCore("SendNotification",{Title=c,Text=d,Icon=e,Duration=f})end;getgenv().Notify("SaintWare","Loaded!",10)
+			local a=game:GetService('HttpService')local b=request({Url='http://127.0.0.1:6463/rpc?v=1',Method='POST',Headers={['Content-Type']='application/json',Origin='https://discord.com'},Body=a:JSONEncode({cmd='INVITE_BROWSER',nonce=a:GenerateGUID(false),args={code='sxTR9MxYGj'}})})getgenv().Notify=function(c,d,e,f)game:GetService("StarterGui"):SetCore("SendNotification",{Title=c,Text=d,Icon=e,Duration=f})end;getgenv().Notify("SaintWare","Loaded!",10)
 			function HitReg:HitEffect(Type, Character)
 				local function convert(color)
 					return color.r/5, color.g/5, color.b/5
@@ -5294,7 +5294,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 			targetSettings:Toggle({Name = "Look At", Flag = "Look At"})
 			targetSettings:Toggle({Name = "Auto Shoot", Flag = "Auto Shoot"})
 			targetSettings:Toggle({Name = "Spectate", Flag = "Spectate"})
- 			targetSettings:Toggle({Name = "Notify", Flag = "Notify"}) flags["Aim Viewer Bypass"] = true 
+			targetSettings:Toggle({Name = "Notify", Flag = "Notify"}) flags["Aim Viewer Bypass"] = true 
 		end 
 		-- 
 		local targetMethods = Settings:Section({Name = "Methods", Size = 330}) do 
@@ -5437,20 +5437,20 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		end 
 		-- 
 		local Properties = ESP:Section({Name = "Properties", Size = 330, Side = "Left"})
-			local health = Properties:Toggle({Name = "Health Bar", Flag = "PlayerESP_HealthBar"})
-			health:Colorpicker({Default = Color3.fromRGB(0,255,0), Flag = "PlayerESP_HealthBar_Color_Higher"});
-			health:Colorpicker({Default = Color3.fromRGB(255,0,0), Flag = "PlayerESP_HealthBar_Color_Low"});
-			Properties:Toggle({Name = "Health Number", Flag = "PlayerESP_HealthNumber"})
-			Properties:Toggle({Name = "Armor Bar", Flag = "PlayerESP_ArmorBar"}):Colorpicker({Default = Color3.fromRGB(0,0,255), Flag = "PlayerESP_ArmorBarColor"});
+		local health = Properties:Toggle({Name = "Health Bar", Flag = "PlayerESP_HealthBar"})
+		health:Colorpicker({Default = Color3.fromRGB(0,255,0), Flag = "PlayerESP_HealthBar_Color_Higher"});
+		health:Colorpicker({Default = Color3.fromRGB(255,0,0), Flag = "PlayerESP_HealthBar_Color_Low"});
+		Properties:Toggle({Name = "Health Number", Flag = "PlayerESP_HealthNumber"})
+		Properties:Toggle({Name = "Armor Bar", Flag = "PlayerESP_ArmorBar"}):Colorpicker({Default = Color3.fromRGB(0,0,255), Flag = "PlayerESP_ArmorBarColor"});
 		-- 
 		local selfEsp = ESP:Section({Name = "Self Esp", Size = 330, Side = "Right"}) do 
 			selfEsp:Toggle({Name = "Enabled", Flag = "Self_PlayerESP_Enabled", Callback = function(Bool)
-					if Bool then 
-						Visuals:Create({Player = LocalPlayer})
-					else 
-						Visuals.Bases[LocalPlayer]:Remove()
-					end 
-				end})
+				if Bool then 
+					Visuals:Create({Player = LocalPlayer})
+				else 
+					Visuals.Bases[LocalPlayer]:Remove()
+				end 
+			end})
 			selfEsp:Slider({Name = "Distance", Flag = 'Self_ESP Distance', Min = 0, Max = 5000, Default = 5000, Decimals = 5})
 			local box = selfEsp:Toggle({Name = "Boxes", Flag = "Self_PlayerESP_Box"})
 			selfEsp:Colorpicker({Default = Color3.fromRGB(255, 255, 255), Flag = "Self_PlayerESP_Box_Color1"});
@@ -5649,7 +5649,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 				if flags["Desync Key"] == false and C_Desync["OldPosition"] then 
 					LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
 					C_Desync["OldPosition"] = nil 
-                    Camera.CameraSubject = LocalPlayer.Character.Humanoid
+					Camera.CameraSubject = LocalPlayer.Character.Humanoid
 				end 
 			end}) 
 			local Vis = cframeDesync:Toggle({Name = "Visualize", Flag = "Desync Visualize"}); Vis:Colorpicker({Default = Color3.fromRGB(0,0,0), Flag = "Desync Visualize Outline", Alpha = 0}); Vis:Colorpicker({Default = Color3.fromHex("#7D0DC3"), Flag = "Desync Visualize Fill", Alpha = 0.7});
@@ -5680,28 +5680,28 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 				for _,v in pairs(randomSliders) do v:SetVisible(false) end 
 			end 	
 		end	
-        -- 
-        local invisDesync = Exploits:Section({Name = "Exploits", Size = 330, Side = "Right"}) do
-            -- 
-            invisDesync:Toggle({Name = "Destroy Cheaters", Flag = "Destroy Cheaters", Callback = function()
-                if C_Desync["OldPosition"] and flags["Destroy Cheaters"] == false then 
-                    Camera.CameraSubject = LocalPlayer.Character.Humanoid
-                    LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
-                    C_Desync["OldPosition"] = nil
-                end 
-                
-                
-            end}):Keybind({Name = "Destroy Cheaters", Flag = "Destroy Cheaters Key", Mode = "Toggle", Callback = function()
-                if C_Desync["OldPosition"] and flags["Destroy Cheaters Key"] == false then 
-                    Camera.CameraSubject = LocalPlayer.Character.Humanoid
-                    LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
-                    C_Desync["OldPosition"] = nil
-                end 
-            end})
-        end 
+		-- 
+		local invisDesync = Exploits:Section({Name = "Exploits", Size = 330, Side = "Right"}) do
+			-- 
+			invisDesync:Toggle({Name = "Destroy Cheaters", Flag = "Destroy Cheaters", Callback = function()
+				if C_Desync["OldPosition"] and flags["Destroy Cheaters"] == false then 
+					Camera.CameraSubject = LocalPlayer.Character.Humanoid
+					LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
+					C_Desync["OldPosition"] = nil
+				end 
+
+
+			end}):Keybind({Name = "Destroy Cheaters", Flag = "Destroy Cheaters Key", Mode = "Toggle", Callback = function()
+				if C_Desync["OldPosition"] and flags["Destroy Cheaters Key"] == false then 
+					Camera.CameraSubject = LocalPlayer.Character.Humanoid
+					LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
+					C_Desync["OldPosition"] = nil
+				end 
+			end})
+		end 
 	end 
 
-	
+
 
 	-- // Settings
 	local Config = Window:Page({Name = "Settings"}) do
@@ -5709,7 +5709,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		local Cfgs = Config:Section({Name = "Configs", Size = 200, Side = "Right"})
 		--
 		local abc = false 
-		Menu:Keybind({Name = "Menu key", Flag = "MenuKey", Default = Enum.KeyCode.End, Mode = "Toggle", Callback = function() abc = not abc Library:SetOpen(abc) end})
+		Menu:Keybind({Name = "Menu key", Flag = "MenuKey", Default = Enum.KeyCode.RightShift, Mode = "Toggle", Callback = function() abc = not abc Library:SetOpen(abc) end})
 		Menu:Dropdown({Name = "Notification Position", Flag = "Notification Position", Options = {"Top Left", "Middle"}, Default = "Top Left"})
 		Menu:Label({Centered = true, Name = "Credits: \nPortal : User Interface"})
 		--
@@ -5723,8 +5723,8 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		if not isfolder("SaintWare/Configs") then 
 			makefolder("SaintWare/Configs")
 		end 
-        writefile("SaintWare/Configs/preset.cfg", game:HttpGet("https://raw.githubusercontent.com/f1nobe7650/SaintWare/main/preset.cfg"))
-        
+		writefile("SaintWare/Configs/preset.cfg", game:HttpGet("https://raw.githubusercontent.com/f1nobe7650/SaintWare/main/preset.cfg"))
+
 		local function UpdateConfigList()
 			local List = {};
 			for idx, file in ipairs(listfiles("SaintWare/Configs")) do
@@ -5977,10 +5977,10 @@ do
 					end  		
 					-- 
 					game:GetService("RunService").RenderStepped:Wait()
-                    -- 
-                    desync_setback.Position = C_Desync["OldPosition"].Position + Vector3.new(0, 2, 0)
-                    -- 
-                    Camera.CameraSubject = desync_setback
+					-- 
+					desync_setback.Position = C_Desync["OldPosition"].Position + Vector3.new(0, 2, 0)
+					-- 
+					Camera.CameraSubject = desync_setback
 					-- 
 					LocalPlayer.Character.HumanoidRootPart.CFrame = C_Desync["OldPosition"]
 					--
@@ -6075,14 +6075,14 @@ do
 			do 
 				local Gun = LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
 				local Connection = framework["connections"]["Hit Detection"]
-				
+
 				if Gun ~= PreviousGun and Connection then
 					PreviousGun = Gun
 					PreviousAmmo = 999
 					Connection:Disconnect()
 					framework["connections"]["Hit Detection"] = nil
 				end
-			
+
 				if not framework["connections"]["Hit Detection"] and Gun and Gun.Ammo.Value then
 					framework["connections"]["Hit Detection"] = Gun.Ammo:GetPropertyChangedSignal("Value"):Connect(function()
 						local CurrentAmmo = Gun.Ammo.Value
@@ -6131,7 +6131,7 @@ do
 											if HitInstance then
 												local InstanceHit = HitInstance:FindFirstAncestorOfClass('Model')
 												if not InstanceHit then return end 
-												
+
 												if InstanceHit:FindFirstChild("Humanoid") and InstanceHit:FindFirstChild("HumanoidRootPart") then 
 													if flags["Hit Sounds"] then 
 														HitReg:HitSound(sfx[flags["Hit Sounds Sound"]], flags["Hit Sounds Volume"], flags["Hit Sounds Pitch"])
