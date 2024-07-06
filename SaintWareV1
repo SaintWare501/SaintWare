@@ -142,7 +142,7 @@ local Library = {
 		["/"] = "?",
 		["`"] = "~"
 	};
- Keys = {
+Keys = {
     [Enum.KeyCode.LeftShift] = "LShift",
     [Enum.KeyCode.RightShift] = "RShift",
     [Enum.KeyCode.LeftControl] = "LCtrl",
@@ -186,11 +186,11 @@ local Library = {
     [Enum.KeyCode.Asterisk] = "*",
     [Enum.KeyCode.Plus] = "+",
     [Enum.KeyCode.Backquote] = "`",
-    [Enum.UserInputType.MouseButton1] = "MB1",  -- Left mouse button
-    [Enum.UserInputType.MouseButton2] = "MB2",  -- Right mouse button
-    [Enum.UserInputType.MouseButton3] = "MB3",  -- Middle mouse button
-    [Enum.UserInputType.MouseButton4] = "MB4",  -- Side mouse button 1
-    [Enum.UserInputType.MouseButton5] = "MB5",  -- Side mouse button 2
+    [Enum.KeyCode.Button1] = "MB1",  -- Mouse button 1 (left mouse button)
+    [Enum.KeyCode.Button2] = "MB2",  -- Mouse button 2 (right mouse button)
+    [Enum.KeyCode.Button3] = "MB3",  -- Mouse button 3 (middle mouse button)
+    [Enum.KeyCode.Button4] = "MB4",  -- Mouse button 4 (side mouse button 1)
+    [Enum.KeyCode.Button5] = "MB5",  -- Mouse button 5 (side mouse button 2)
 };
 	Connections = {};
 	Font = Enum.Font.Ubuntu;
