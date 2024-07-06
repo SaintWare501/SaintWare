@@ -3804,7 +3804,7 @@ do
 			end
 		end 
 		
-		-- // Framework Functions 
+-- // Framework Functions 
 		do 
 			function framework:selectTarget() 
 				local deathLoop; 
@@ -3856,48 +3856,44 @@ do
 				end 
 			end  
 			-- 
-			function framework:aimAssist()
-    local Enabled = flags["Aim Assist"] and flags["Aim Assist Bind"]
-    if not Enabled then return end
-    
-    local endPosition;
-    local fovCheck;
-    local Resolver, Prediction = flags["Resolver"], flags["Aim Assist Manual Prediction Value"] or 0.1413
-    local Target = utility.target or aimAssistTarget
-    local Part = (flags["Aim Assist Jump Prediction"] and Target.Character.Humanoid.FloorMaterial == Enum.Material.Air and "RightFoot") or flags["Aim Assist Single Hit Part"]
-    local characterOffset = Resolver and framework:calculateResolverOffset(Target) * Prediction or Target.Character.HumanoidRootPart.Velocity * Prediction
-    local yOffset = Target.Character.Humanoid.FloorMaterial == Enum.Material.Air and flags["Aim Assist Manual Offset Value"] or 0 
-    local Checks = framework:getChecks(Target, table.find(flags["Aim Assist Checks"], "Friend Check"), table.find(flags["Aim Assist Checks"], "Wall Check"), table.find(flags["Aim Assist Checks"], "Knocked Check"), table.find(flags["Aim Assist Checks"], "Grabbed Check"));
-    
-    local characterPosition = Target.Character[Part].Position + characterOffset + Vector3.new(0, yOffset, 0)
-    
-    local Position = Camera:WorldToViewportPoint(Target.Character.PrimaryPart.Position)
-    local Magnitude = (Vector2.new(Position.X, Position.Y) - Vector2.new(Mouse.X, Mouse.Y)).magnitude
-    
-    if utility.drawings["Aim Assist FOV"].Visible then 
-        fovCheck = Magnitude < utility.drawings["Aim Assist FOV"].Radius 
-    else 
-        fovCheck = true 
-    end 
-    
-    if Checks and fovCheck then 
-        fovCheck = Magnitude
-        
-        if flags["Aim Assist Method"] == "Use Mouse" then 
-            endPosition, OnScreen = Camera:WorldToScreenPoint(characterPosition)
-            
-            if OnScreen then 
-                mousemoverel(Vector2.new(endPosition.X - Mouse.X, endPosition.Y - Mouse.Y).X / (flags["Horizontal Smoothness"] + 1), Vector2.new(endPosition.X - Mouse.X, endPosition.Y - Mouse.Y).Y / (flags["Vertical Smoothness"] + 1))
-            end 
-        else 
-            Camera.CFrame = Camera.CFrame:Lerp(CFrame.new(Camera.CFrame.Position, characterPosition), (100 - flags["Smoothness"]) / 100)
-        end 
-        
-        if flags["Notify"] then 
-            Library:Notification("Locked onto: " .. Target.Name, 3, Library.Accent, flags["Notification Position"])
-        end 
-    end 
-end
+			function framework:aimAssist() 
+				local Enabled = flags["Aim Assist"] and flags["Aim Assist Bind"]
+				if not Enabled then return end 
+				-- 
+				local endPosition;
+				local fovCheck;  
+				local Resolver, Prediction = flags["Resolver"], flags["Aim Assist Manual Prediction Value"] or 0.1413
+				local Target = utility.target or aimAssistTarget
+				local Part = (flags["Aim Assist Jump Prediction"] and Target.Character.Humanoid.FloorMaterial == Enum.Material.Air and "RightFoot") or flags["Aim Assist Single Hit Part"]
+				local characterOffset = Resolver and framework:calculateResolverOffset(Target) * Prediction or Target.Character.HumanoidRootPart.Velocity * Prediction
+				local yOffset = Target.Character.Humanoid.FloorMaterial == Enum.Material.Air and flags["Aim Assist Manual Offset Value"] or 0 
+				local Checks = framework:getChecks(Target, table.find(flags["Aim Assist Checks"], "Friend Check"), table.find(flags["Aim Assist Checks"], "Wall Check"), table.find(flags["Aim Assist Checks"], "Knocked Check"), table.find(flags["Aim Assist Checks"], "Grabbed Check"));	
+				-- 
+				local characterPosition = Target.Character[Part].Position + characterOffset + NewVector3(0, yOffset, 0)
+				-- 
+				local Position = Camera:WorldToViewportPoint(Target.Character.PrimaryPart.Position)
+				local Magnitude = (NewVector2(Position.X, Position.Y) - NewVector2(Mouse.X, Mouse.Y)).magnitude
+				-- 
+				if utility.drawings["Aim Assist FOV"].Visible then 
+					fovCheck = Magnitude < utility.drawings["Aim Assist FOV"].Radius 
+				else 
+					fovCheck = true 
+				end 
+				-- 
+				if Checks and fovCheck then 
+					fovCheck = Magnitude
+					-- 
+					if flags["Aim Assist Method"] == "Use Mouse" then 
+						endPosition, OnScreen = Camera:WorldToScreenPoint(characterPosition)
+						-- 
+						if OnScreen then 
+							mousemoverel(NewVector2(endPosition.X - Mouse.X, endPosition.Y - Mouse.Y).X / (flags["Horizontal Smoothness"] + 1), NewVector2(endPosition.X - Mouse.X, endPosition.Y - Mouse.Y).Y / (flags["Vertical Smoothness"] + 1))
+						end 
+					else 
+						Camera.CFrame = Camera.CFrame:Lerp(NewCFrame(Camera.CFrame.p, characterPosition), (100 - flags["Smoothness"]) / 100)
+					end 
+				end 
+			end 
 
 			-- 
 			function framework:desyncInit() -- thanks wendigo for this or whoever made it 
@@ -5380,7 +5376,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		local aimAssist_Settings = legit:Section({Name = "Settings", Size = 330}) do 
 			aimAssist_Settings:Dropdown({Name = "Hit-Part", Flag = "Aim Assist Single Hit Part", Options = utility.bodyParts, Default = "HumanoidRootPart"})
 			aimAssist_Settings:Toggle({Name = "Jump Prediction", Flag = "Aim Assist Jump Prediction"})
-			aimAssist_Settings:Toggle({Name = "Notify", Flag = "Notify"})
+ 			aimAssist_Settings:Toggle({Name = "Notify", Flag = "Notify"}) flags["Aim Viewer Bypass"] = true 
 			aimAssist_Settings:Textbox({Name = "Prediction", Flag = "Aim Assist Manual Prediction Value", Placeholder = "Prediction"})
 			aimAssist_Settings:Textbox({Name = "Jump Offset", Flag = "Aim Assist Manual Offset Value", Placeholder = "Jump Offset"})
 		end 
