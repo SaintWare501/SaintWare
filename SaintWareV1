@@ -6045,7 +6045,7 @@ do
 							textOrigin = NewVector2(Mouse.X - 23, Mouse.Y + Offset + yOffset)
 						end 
 						-- 
-						sub.Visible = true 
+						sub.Visible = false 
 						domain.Visible = true    
 						-- 
 						sub.Position = textOrigin
