@@ -196,7 +196,7 @@ local Library = {
 	FontSize = 9;
 	Notifs = {};
 	KeyList = nil;
-	UIKey = Enum.KeyCode.RightShift;
+	UIKey = Enum.KeyCode.RShift;
 	ScreenGUI = nil;
 }
 
@@ -5709,7 +5709,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		local Cfgs = Config:Section({Name = "Configs", Size = 200, Side = "Right"})
 		--
 		local abc = false 
-		Menu:Keybind({Name = "Menu key", Flag = "MenuKey", Default = Enum.KeyCode.RightShift, Mode = "Toggle", Callback = function() abc = not abc Library:SetOpen(abc) end})
+		Menu:Keybind({Name = "Menu key", Flag = "MenuKey", Default = Enum.KeyCode.RShift, Mode = "Toggle", Callback = function() abc = not abc Library:SetOpen(abc) end})
 		Menu:Dropdown({Name = "Notification Position", Flag = "Notification Position", Options = {"Top Left", "Middle"}, Default = "Top Left"})
 		Menu:Label({Centered = true, Name = "Credits: \nPortal : User Interface"})
 		--
