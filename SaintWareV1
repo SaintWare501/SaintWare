@@ -5375,6 +5375,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		local aimAssist_Settings = legit:Section({Name = "Settings", Size = 330}) do 
 			aimAssist_Settings:Dropdown({Name = "Hit-Part", Flag = "Aim Assist Single Hit Part", Options = utility.bodyParts, Default = "HumanoidRootPart"})
 			aimAssist_Settings:Toggle({Name = "Jump Prediction", Flag = "Aim Assist Jump Prediction"})
+			aimAssist_Settings:Toggle({Name = "Notify", Flag = "Notify"})
 			aimAssist_Settings:Textbox({Name = "Prediction", Flag = "Aim Assist Manual Prediction Value", Placeholder = "Prediction"})
 			aimAssist_Settings:Textbox({Name = "Jump Offset", Flag = "Aim Assist Manual Offset Value", Placeholder = "Jump Offset"})
 		end 
