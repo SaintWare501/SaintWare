@@ -1,0 +1,38 @@
+-- Define your whitelist (replace these with actual usernames)
+local whitelist = {
+	"SkatePopular"
+}
+
+-- Function to check if a username is whitelisted
+local function isWhitelisted(username)
+	for _, allowedUser in ipairs(whitelist) do
+		if allowedUser:lower() == username:lower() then
+			return true
+		end
+	end
+	return false
+end
+
+-- Function to kick a player from the game
+local function kickPlayer(player)
+	if player then
+		player:Kick("You are not whitelisted to use this script.")
+	end
+end
+
+-- Function to load the script if the user is whitelisted
+local function loadScript(username)
+	if isWhitelisted(username) then
+		local scriptUrl = 'https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareV1'
+		loadstring(game:HttpGet(scriptUrl))() -- Execute the script
+	else
+		warn("User is not whitelisted!")
+		-- Optional: Kick the player if they are in the game
+		local player = game.Players:FindFirstChild(username)
+		kickPlayer(player)
+	end
+end
+
+-- Example usage (replace 'usernameToCheck' with the actual Roblox username)
+local usernameToCheck = "username4"  -- Example of a non-whitelisted username
+loadScript(usernameToCheck)
