@@ -4544,15 +4544,6 @@ do
 				Lynx.Assist.Target = Lynx:GetClosestPlayer()
 			end 
 		end}
-		--
-S:Keybind{name = 'Key', flag = "Aim Assist Key", type = 1, callback = function(Bool)
-    if Bool and flags["Aim Assist Enabled"] then 
-        Lynx.Assist.Target = Lynx:GetClosestPlayer()
-    elseif not Bool then
-        Lynx.Assist.Target = nil  -- Clear the target when the key is released
-    end 
-end}
-
 --
 S:Toggle{Name = 'Sticky Aim', flag = 'Sticky Aim'}
 
