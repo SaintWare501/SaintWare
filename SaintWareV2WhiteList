@@ -96,7 +96,7 @@ TextLabel_2.TextSize = 23.000
 TextButton.MouseButton1Click:Connect(function()
     -- Load the script here
     if isWhitelisted(game.Players.LocalPlayer.Name) then
-        local scriptUrl = 'https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareV1'
+        local scriptUrl = 'https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareV2'
         loadstring(game:HttpGet(scriptUrl))() -- Execute the script
         
         -- Destroy the GUI after success
