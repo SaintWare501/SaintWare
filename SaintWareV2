@@ -3254,7 +3254,7 @@ function ui:Init(options)
 						Tween(circle, 0.1, 'Quad', 'In', {ImageTransparency = 1})
 						task.wait(.1)
 						circle.Rotation = 0
-						circle.Image = 'rbxassetid://1202200114'
+						circle.Image = 'rbxassetid://18372890980'
 						Tween(circle, 0.1, 'Quad', 'In', {ImageTransparency = 0})
 						task.wait(1)
 						Tween(loaderFrame, 0.2, 'Quad', 'In', {BackgroundTransparency = 1})
