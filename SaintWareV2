@@ -4907,7 +4907,7 @@ Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 75
 		local Hit_Sounds = On_Hit:Sector{Side = 1}  
 		do 
 			Hit_Sounds:Title{Title = 'Hit Sounds & Changer', Description = "Plays a sound when hit & Changes your yk ;)"}
-			Hit_Sounds:Button{Name = 'Change ur shit', callback = function()
+			Hit_Sounds:Button{Name = 'Skin Changer', callback = function()
 				ui:Notify{text = "Changing your skins (ALL SKINS WONT WORK BTW)", time = 5, style = "loading"}
 				loadstring(game:HttpGet('https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareChanger'))()
 			end}
