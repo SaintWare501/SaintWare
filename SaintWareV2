@@ -4546,23 +4546,41 @@ do
 			end 
 		end}
 		--
-		S:Toggle{Name = 'Sticky Aim', flag = 'Sticky Aim'}
-		--
-		Aimbot:Input({Name = "Prediction:", Flag = "Aim Assist Prediction", Focuses = true, Editable = true})
-		--
-		THL = Aimbot:Dropdown{Name = 'Hit-Part', flag = 'Aim Assist HitPart', options = bodyParts, min = 1}
-		--
-		Aimbot:Toggle{Name = 'Smoothness',flag = 'Smoothness'}
-		--
-		Aimbot:Slider{Name = 'Amount', flag = 'Smoothness Amount', min = 1, max = 100, default = 1, float = 0.1}
-		--
-		Aimbot:Dropdown{Name = 'Checks', flag = 'Aim_Assist_Checks', options = {"Visible", "Wall", "ForceField", "Knocked"}, min = 0}
-		--
-		local serversideQqwdqQW = Aimbot:CreateSegment{Name = 'Stutter'}
-		--
-		serversideQqwdqQW:Slider{flag = 'Stutter Amount', min = 0, max = 50, default = 0, float = 0.1}
-		-- 
-		Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 7500, default = 7500, float = 0.1}
+S:Keybind{name = 'Key', flag = "Aim Assist Key", type = 1, callback = function(Bool)
+    if Bool and flags["Aim Assist Enabled"] then 
+        Lynx.Assist.Target = Lynx:GetClosestPlayer()
+    elseif not Bool then
+        Lynx.Assist.Target = nil  -- Clear the target when the key is released
+    end 
+end}
+
+--
+S:Toggle{Name = 'Sticky Aim', flag = 'Sticky Aim'}
+
+--
+Aimbot:Input({Name = "Prediction:", Flag = "Aim Assist Prediction", Focuses = true, Editable = true})
+
+--
+THL = Aimbot:Dropdown{Name = 'Hit-Part', flag = 'Aim Assist HitPart', options = bodyParts, min = 1}
+
+--
+Aimbot:Toggle{Name = 'Smoothness',flag = 'Smoothness'}
+
+--
+Aimbot:Slider{Name = 'Amount', flag = 'Smoothness Amount', min = 1, max = 100, default = 1, float = 0.1}
+
+--
+Aimbot:Dropdown{Name = 'Checks', flag = 'Aim_Assist_Checks', options = {"Visible", "Wall", "ForceField", "Knocked"}, min = 0}
+
+--
+local serversideQqwdqQW = Aimbot:CreateSegment{Name = 'Stutter'}
+
+--
+serversideQqwdqQW:Slider{flag = 'Stutter Amount', min = 0, max = 50, default = 0, float = 0.1}
+
+-- 
+Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 7500, default = 7500, float = 0.1}
+
 	end 
 	-- 
 	local CameraShake = Aim_Assist_Tab:Sector{Side = 2}
