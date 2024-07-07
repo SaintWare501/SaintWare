@@ -10,7 +10,11 @@ do
         end;
     end;
 
-    cout('SaintWare', 'Skin Changer Executor initialization')
+game.StarterGui:SetCore("SendNotification", {
+    Title = "SaintWare",
+    Text = "Skin Changer Executor initialization",
+    Duration = 5 -- Optional: Set the duration in seconds
+})
 
     if not getgenv().InventoryConnections then
         getgenv().InventoryConnections = {};
@@ -829,12 +833,27 @@ do
 
         InventoryChanger.Functions.Unload();
 
-        cout('SaintWare', 'Script successfully reloaded!');
-        cout('SaintWare', 'Waiting for skins to load...');
+wait(5)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "SaintWare",
+    Text = "Script successfully reloaded!",
+    Duration = 5 -- Optional: Set the duration in seconds
+})
+
+wait(5)
+        game.StarterGui:SetCore("SendNotification", {
+    Title = "SaintWare",
+    Text = "Waiting for skins to load...",
+    Duration = 5 -- Optional: Set the duration in seconds
+})
 
         wait_for_child(entries, '[Revolver]Golden Age');
 
-        cout('Reload', 'Skins successfully loaded.');
+game.StarterGui:SetCore("SendNotification", {
+    Title = "SaintWare",
+    Text = "Skins successfully loaded!",
+    Duration = 5 -- Optional: Set the duration in seconds
+})
         InventoryChanger.Functions.AddOwnedSkins();
         InventoryChanger.Functions.UnequipGameSkins();
 
