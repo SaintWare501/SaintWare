@@ -3107,13 +3107,20 @@ function ui:Init(options)
 		ResetOnSpawn = false
 	})
 
-	function ui:Unload()
-		for _, connection in next, Connections do
-			connection:Disconnect()
-		end
+function ui:Unload()
+    -- Assuming Connections is a table containing event connections
+    if Connections then
+        for _, connection in ipairs(Connections) do
+            connection:Disconnect()
+        end
+    end
 
-		UIsHolder:Destroy()
-	end
+    -- Assuming UIsHolder is a reference to the parent object holding UI elements
+    if UIsHolder then
+        UIsHolder:Destroy()
+    end
+end
+
 
 	function ui:SetToggled(bool)
 		UIsHolder.Enabled = bool
