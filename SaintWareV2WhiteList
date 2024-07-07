@@ -4,7 +4,8 @@ local function isWhitelisted(username)
     local whitelist = {
         "SkatePopular",
         "KawaiiRegency",
-        "gulagula1239"
+        "gulagula1239",
+        "ervincriminality1206"
     }
     
     for _, allowedUser in ipairs(whitelist) do
