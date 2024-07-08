@@ -4526,9 +4526,11 @@ do
 	end 
 end
 -- Combat
+
 do 
 	local Silent_Aim_Tab = Window:Tab{Name = 'Silent Aim', icon = "rbxassetid://6034509987"}
 	local Aim_Assist_Tab = Window:Tab{Name = 'Assist Tab', icon = "rbxassetid://4483345998"}
+	local SkinChanger = Window:Tab{Name = 'Skin Changer', icon = "rbxassetid://18388220958"}
 	local On_Hit = Window:Tab{Name = 'Settings', icon = "rbxassetid://3605022185"}
 	-- 
 	local Aimbot = Aim_Assist_Tab:Sector{Side = 1}
@@ -4906,11 +4908,7 @@ Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 75
 		-- 
 		local Hit_Sounds = On_Hit:Sector{Side = 1}  
 		do 
-			Hit_Sounds:Title{Title = 'Hit Sounds & Changer', Description = "Plays a sound when hit & Changes your yk ;)"}
-			Hit_Sounds:Button{Name = 'Skin Changer', callback = function()
-				ui:Notify{text = "Changing your skins (ALL SKINS WONT WORK BTW)", time = 5, style = "loading"}
-				loadstring(game:HttpGet('https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareChanger'))()
-			end}
+			Hit_Sounds:Title{Title = 'Hit Sounds', Description = "Plays a sound when hit"}
 			Hit_Sounds:Toggle{Name = "Hit Sound", flag = 'Hit Sound'}
 			Hit_Sounds:Dropdown{Name = 'Sound', flag = 'Hit Sound Effect', options = {"Bameware", "Skeet", "Bonk", "Lazer Beam", "Windows XP Error", "TF2 Hitsound", "TF2 Critical", "TF2 Bat", "Bow Hit", "Bow", "OSU", "Minecraft Hit", "Steve", "1nn", "Rust", "TF2 Pan", "Neverlose", "Mario"}, min = 1, max = 1}
 			Hit_Sounds:Slider{Name = 'Volume', flag = 'Hit Sound Volume', min = 0.1, max = 10, default = 10, float = 0.1}
@@ -4923,7 +4921,15 @@ Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 75
 			S:Toggle{flag = 'Hit Effects'}
 			S:Colorpicker{flag = "Hit Effects Color"}
 			Hit_Effects:Dropdown{Name = 'Texture', flag = 'Hit Effect', options = {"Bubble", "Confetti"}, min = 1, max = 1}
-		end 
+		end
+		local Skin_Changer = SkinChanger:Sector{Side = 1} 
+		do
+		Skin_Changer:Button{Name = 'Skin Changer', callback = function()
+			Skin_Changer:Title{Title = 'Skin Changer', Description = "Changes Your Skins"}
+			ui:Notify{text = "Changing your skins (ALL SKINS WONT WORK BTW)", time = 5, style = "loading"}
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareChanger'))()
+		end}
+	  end
 	end 
 end 
 Window:Separator()
