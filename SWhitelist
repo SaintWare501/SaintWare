@@ -1,1 +1,6 @@
-
+local whitelist = {
+        "SkatePopular",
+        "KawaiiRegency",
+        "gulagula1239",
+        "ervincriminality1206"
+    }
