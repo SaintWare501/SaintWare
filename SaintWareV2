@@ -4924,8 +4924,8 @@ Aimbot:Slider{Name = 'Distance', flag = 'Aim Assist Distance', min = 1, max = 75
 		end
 		local Skin_Changer = SkinChanger:Sector{Side = 1} 
 		do
+		Skin_Changer:Title{Title = 'Skin Changer', Description = "Changes Your Skins"}
 		Skin_Changer:Button{Name = 'Skin Changer', callback = function()
-			Skin_Changer:Title{Title = 'Skin Changer', Description = "Changes Your Skins"}
 			ui:Notify{text = "Changing your skins (ALL SKINS WONT WORK BTW)", time = 5, style = "loading"}
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/SaintWare501/SaintWare/main/SaintWareChanger'))()
 		end}
