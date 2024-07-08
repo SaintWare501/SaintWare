@@ -5586,7 +5586,7 @@ do
 	do 
 		Settings_Sector:Button{Name = 'Unload Cheat', callback = Lynx.Unload}
 		-- 
-		Settings_Sector:Keybind{Flag = "UI Bind", name = 'Key',key = Enum.KeyCode.Insert, type = 2, callback = LPH_JIT(function() ui:Toggle() end)}
+		Settings_Sector:Keybind{Flag = "UI Bind", name = 'Key',key = Enum.KeyCode.RightShift, type = 2, callback = LPH_JIT(function() ui:Toggle() end)}
 		ui:Toggle()
 		--
 		Settings_Sector:Slider{Name = 'Rainbow Speed', flag = 'Rainbow Speed', min = 0.1, max = 5, default = 2, float = 0.1}
