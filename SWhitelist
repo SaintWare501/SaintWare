@@ -3,6 +3,7 @@ local whitelist = {
         "KawaiiRegency",
         "gulagula1239",
         "ervincriminality1206",
-        "EpicLeboyski19"
+        "EpicLeboyski19",
+        "Bwisit1000"
     }
 return whitelist
